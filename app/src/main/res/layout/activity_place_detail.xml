@@ -7,4 +7,164 @@
         android:layout_height="match_parent"
         tools:context=".PlaceDetail">
 
+    <com.google.android.gms.maps.MapView
+            android:layout_width="383dp"
+            android:layout_height="178dp"
+            android:id="@+id/mapView" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/place_name" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/mapView"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="32dp" android:textSize="24sp" android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toStartOf="@+id/distance" app:layout_constraintHorizontal_bias="0.0"/>
+    <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/ratingBarStyleSmall"
+            android:numStars="5"
+            android:stepSize="0.25"
+            android:id="@+id/ratingBar"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/place_name"
+            app:layout_constraintStart_toStartOf="@+id/place_name"/>
+    <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/place_ubication" app:layout_constraintStart_toStartOf="@+id/ratingBar"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar" app:layout_constraintEnd_toEndOf="@+id/place_name"
+            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.0"/>
+    <ImageView
+            android:layout_width="57dp"
+            android:layout_height="42dp" app:srcCompat="@drawable/ic_dog_friendly"
+            android:id="@+id/petfriendlyimage" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/distance"/>
+    <TextView
+            android:text="Distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/distance"
+            app:layout_constraintTop_toTopOf="@+id/place_name" android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:id = "@+id/directionsbtn"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/place_ubication"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="1.0" android:layout_marginTop="16dp">
+
+        <ImageView
+                android:layout_width="32dp"
+                android:layout_height="36dp" app:srcCompat="@drawable/ic_directions"
+                android:id="@+id/imageView2" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"/>
+        <TextView
+                android:text="Directions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView4"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                android:layout_marginStart="16dp" android:textSize="20sp" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+                android:text="15 min drive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView5" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintStart_toStartOf="@+id/textView4" app:layout_constraintBottom_toBottomOf="parent"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/ic_keyboard_arrow_right_grey"
+                android:id="@+id/imageView3" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="8dp" android:layout_marginTop="8dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:id="@+id/callbtn"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintTop_toBottomOf="@+id/directionsbtn">
+
+        <ImageView
+                android:layout_width="45dp"
+                android:layout_height="55dp" app:srcCompat="@drawable/ic_cellphone"
+                android:id="@+id/call" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"/>
+        <TextView
+                android:text="Call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/callText"
+                android:textSize="20sp" android:layout_marginTop="16dp"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toEndOf="@+id/call"
+                android:layout_marginStart="16dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/phone_number"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/callText"
+                app:layout_constraintStart_toStartOf="@+id/callText"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/ic_keyboard_arrow_right_grey"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="8dp" android:layout_marginTop="8dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:id="@+id/wbstbtn"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@+id/callbtn"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"
+            android:layout_marginBottom="8dp">
+
+        <ImageView
+                android:layout_width="45dp"
+                android:layout_height="55dp" app:srcCompat="@drawable/ic_website"
+                android:id="@+id/wbst" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"/>
+        <TextView
+                android:text="Visit Website"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/vistWb"
+                android:textSize="20sp" android:layout_marginTop="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/wbst" android:layout_marginStart="16dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/url"
+                android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vistWb"
+                app:layout_constraintVertical_bias="0.0" app:layout_constraintStart_toStartOf="@+id/vistWb"
+        />
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/ic_keyboard_arrow_right_grey"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="8dp" android:layout_marginTop="8dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
