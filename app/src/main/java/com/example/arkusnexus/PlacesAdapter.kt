@@ -42,7 +42,7 @@ class PlacesAdapter(val placeArray: Array<Place>) : RecyclerView.Adapter<DogView
             holder.view.petfriendlytext.visibility = View.VISIBLE
 
         }
-        holder.view.ratingBar.rating = place.Rating
+        holder.view.ratingbarnew.rating = place.Rating
         holder.view.distance.text = place.Distance.toString()+" m"
         holder.place = place
 
