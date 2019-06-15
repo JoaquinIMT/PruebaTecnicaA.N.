@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 places.sortWith(compareBy({ it.Distance }))
                 runOnUiThread {
-                    reciclerView.adapter = PlacesAdapter(places)
+                    reciclerView.adapter = PlacesAdapter(places, lat, lng)
 
                 }
 

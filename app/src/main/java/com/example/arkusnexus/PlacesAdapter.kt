@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.dog_row.view.*
 
-class PlacesAdapter(val placeArray: Array<Place>) : RecyclerView.Adapter<DogViewHolder>() {
+class PlacesAdapter(val placeArray: Array<Place>, val lat: Float, val lng: Float) : RecyclerView.Adapter<DogViewHolder>() {
 
     override fun getItemCount(): Int {
 
@@ -35,28 +35,32 @@ class PlacesAdapter(val placeArray: Array<Place>) : RecyclerView.Adapter<DogView
         holder.view.adress.text = place.AddressLine1
         holder.view.city.text = place.AddressLine2
         if(!place.IsPetFriendly){
-            holder.view.petfriendlyimage.visibility = View.INVISIBLE
-            holder.view.petfriendlytext.visibility = View.INVISIBLE
+            holder.view.petfriendlyimage.setImageResource(R.drawable.ic_dog_not_friendly)
+            holder.view.petfriendlytext.text = "Not Pet Friendly"
         }else{
-            holder.view.petfriendlyimage.visibility = View.VISIBLE
-            holder.view.petfriendlytext.visibility = View.VISIBLE
-
+            holder.view.petfriendlyimage.setImageResource(R.drawable.ic_dog_friendly)
+            holder.view.petfriendlytext.text = "Pet Friendly"
         }
         holder.view.ratingbarnew.rating = place.Rating
         holder.view.distance.text = place.Distance.toString()+" m"
         holder.place = place
+
+        holder.lat = lat
+        holder.lng = lng
 
     }
 
 }
 
 
-class DogViewHolder(var view: View, var place: Place? = null): RecyclerView.ViewHolder(view){
+class DogViewHolder(var view: View, var place: Place? = null,var lat: Float? = null ,var lng: Float? = null): RecyclerView.ViewHolder(view){
 
     init {
         view.setOnClickListener {
             val intent = Intent(view.context,PlaceDetail::class.java)
             intent.putExtra("Place",place)
+            intent.putExtra("Lat",lat)
+            intent.putExtra("Lng",lng)
             view.context.startActivity(intent)
         }
     }
